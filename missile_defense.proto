@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+service MissileDefenseService {
+  rpc MissileApproaching (MissileRequest) returns (google.protobuf.Empty);
+  rpc Status (SoldierID) returns (SoldierStatus);
+  rpc WasHit (SoldierID) returns (BoolMessage);
+  rpc TakeShelter (TakeShelterRequest) returns (google.protobuf.Empty);
+}
+
+message MissileRequest {
+  int32 x = 1;
+  int32 y = 2;
+  int32 time = 3;
+  int32 type = 4;
+}
+
+message SoldierID {
+  int32 id = 1;
+}
+
+message SoldierStatus {
+  bool is_alive = 1;
+}
+
+message BoolMessage {
+  bool value = 1;
+}
+
+message TakeShelterRequest {
+  int32 soldier_id = 1;
+  int32 missile_x = 2;
+  int32 missile_y = 3;
+}
