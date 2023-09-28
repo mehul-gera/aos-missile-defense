@@ -18,9 +18,10 @@ class MissileDefenseServicer(missile_defense_pb2_grpc.MissileDefenseServiceServi
             self.NotifySoldier(soldier, request)
 
         # Check for battle outcome and update soldier statuses
-        alive_count = sum(1 for soldier in self.soldiers.values() if soldier.is_alive)
-        if alive_count <= len(self.soldiers) / 2:
-            print("Battle lost!")
+        # alive_count = sum(1 for soldier in self.soldiers.values() if soldier.is_alive)
+        # if alive_count <= len(self.soldiers) / 2:
+        #     print("Battle lost!")
+        print("Round Over !")
         return missile_defense_pb2.Empty()
 
     def Status(self, request, context):
