@@ -12,7 +12,7 @@ class SoldierClient:
         self.y = random.randint(0, 9)
         self.speed = random.randint(0, 4)
         self.is_alive = True
-        self.channel = grpc.insecure_channel('localhost:50051')
+        self.channel = grpc.insecure_channel('192.168.1.42:50051')
         self.stub = missile_defense_pb2_grpc.MissileDefenseServiceStub(self.channel)
 
     def missile_approaching(self, position, time, missile_type):

@@ -62,7 +62,7 @@ class MissileDefenseServicer(missile_defense_pb2_grpc.MissileDefenseServiceServi
 def serve():
     server = grpc.server(concurrent.futures.ThreadPoolExecutor(max_workers=10))
     missile_defense_pb2_grpc.add_MissileDefenseServiceServicer_to_server(MissileDefenseServicer(), server)
-    server.add_insecure_port('[::]:50051')
+    server.add_insecure_port('192.168.1.42:50051')
     server.start()
     try:
         while True:
